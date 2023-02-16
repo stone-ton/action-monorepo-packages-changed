@@ -1,0 +1,36 @@
+{
+  "[typescript]": {
+    "editor.rulers": [
+      {
+        "column": 80,
+        "color": "#424142"
+      }
+    ],
+    "editor.defaultFormatter": null,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
+  },
+  "[javascript]": {
+    "editor.rulers": [
+      {
+        "column": 80,
+        "color": "#424142"
+      }
+    ],
+    "editor.defaultFormatter": null,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
+  },
+  "cSpell.words": [
+    "uuidv"
+  ],
+  "jest.autoRun": {
+    "watch": false,
+    "onSave": "test-src-file",
+    "onStartup": [
+      "not-test"
+    ]
+  }
+}
