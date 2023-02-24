@@ -1,0 +1,16 @@
+name: 'Action Monorepo Packages Changed'
+description: 'Get packages changes by folder'
+inputs:
+  token:
+    description: 'Github API token'
+  pull_requests_base_branch:
+    default: 'master'
+    description: 'Name of base branch'
+  merge_push_on:
+    default: 'sdx'
+    description: 'Name of branch will be created from base branch to merge PRs'
+
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
