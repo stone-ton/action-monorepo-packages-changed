@@ -6,6 +6,7 @@ const groupPackagesChanged = require('./group-package-changed')
 async function run () {
   try {
     const token = core.getInput('token', { required: true })
+    const base_ref = core.getInput('base_ref', { required: false })
     const octokit = github.getOctokit(token)
     const client = octokit.rest
 
@@ -28,6 +29,16 @@ async function run () {
         core.setFailed(
           `This action only supports pull requests and pushes, ${context.eventName} events are not supported. `,
         )
+    }
+
+    if (base_ref) {
+      const base_commit = await client.repos.getCommit({
+        owner: context.repo.owner,
+        repo: context.repo.repo,
+        ref: base_ref,
+      })
+
+      base = base_commit.data.sha
     }
 
     core.info(`Base commit: ${base}`)
