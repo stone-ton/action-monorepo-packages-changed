@@ -1,7 +1,7 @@
-const core = require('@actions/core')
-const github = require('@actions/github')
+import * as core from '@actions/core'
+import * as github from '@actions/github'
 
-const groupPackagesChanged = require('./group-package-changed')
+import groupPackagesChanged from './group-package-changed'
 
 async function run () {
   try {
@@ -69,7 +69,11 @@ async function run () {
       )
     }
 
-    const packages = groupPackagesChanged(response.data.files)
+    const files = response.data.files ?? []
+
+    const packages = groupPackagesChanged(
+      files.map(({ filename }) => filename),
+    )
     core.setOutput('packages_changed', Object.keys(packages))
 
     core.info(`Changed: ${JSON.stringify(packages, null, 2)}`)

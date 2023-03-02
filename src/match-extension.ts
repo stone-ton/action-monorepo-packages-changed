@@ -3,8 +3,11 @@
  * @param {string[]} extensions - Array of extensions ex: ['.md', 'LICENSE']
  * @param {string} filename - Location of file
  */
-const matchExtension = (extensions, filename) => {
+const matchExtension = (
+  extensions: string[],
+  filename: string,
+) => {
   return extensions.some((ext) => filename.endsWith(ext))
 }
 
-module.exports = matchExtension
+export default matchExtension
