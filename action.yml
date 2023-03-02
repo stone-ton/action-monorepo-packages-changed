@@ -3,13 +3,8 @@ description: 'Get packages changes by folder'
 inputs:
   token:
     description: 'Github API token'
-  pull_requests_base_branch:
-    default: 'master'
-    description: 'Name of base branch'
-  merge_push_on:
-    default: 'sdx'
-    description: 'Name of branch will be created from base branch to merge PRs'
-
+  base_ref:
+    description: 'Optional branch for compare commits'
 
 runs:
   using: 'docker'
