@@ -1,4 +1,4 @@
-const matchExtension = require('./match-extension')
+import matchExtension from './match-extension'
 
 describe('Match extension', () => {
   const cases = [
@@ -10,7 +10,7 @@ describe('Match extension', () => {
   test.each(cases)(
     'given %p and %p as arguments, returns %p',
     (firstArg, secondArg, expectedResult) => {
-      const result = matchExtension(firstArg, secondArg)
+      const result = matchExtension(firstArg as string[], secondArg as string)
       expect(result).toEqual(expectedResult)
     },
   )

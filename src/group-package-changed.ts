@@ -1,4 +1,4 @@
-const matchExtension = require('./match-extension')
+import matchExtension from './match-extension'
 
 /**
  * Group file locations based on the first group of regular expressions.
@@ -8,20 +8,16 @@ const matchExtension = require('./match-extension')
  * @returns {Object<string, string[]>}
  */
 const groupPackagesChanged = (
-  files,
-  ignore = [],
+  files: string[],
+  ignore: string[] = [],
   group_regex = /^packages\/([^/]+)\/(.+)$/,
 ) => {
-  if (!Array.isArray(files)) {
-    return {}
-  }
-
   return files
     .filter(
-      ({ filename }) => !matchExtension(ignore, filename) && filename.match(group_regex) !== null,
+      (filename) => !matchExtension(ignore, filename) && filename.match(group_regex) !== null,
     )
-    .map(({ filename }) => {
-      const [_, package_name, file] = filename.match(group_regex)
+    .map((filename) => {
+      const [_, package_name, file] = filename.match(group_regex)!
 
       return {
         package_name,
@@ -37,4 +33,4 @@ const groupPackagesChanged = (
     }), {})
 }
 
-module.exports = groupPackagesChanged
+export default groupPackagesChanged
