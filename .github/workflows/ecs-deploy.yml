@@ -27,7 +27,7 @@ on:
 
 jobs:
   deploy:
-    name: Lint and Tests
+    name: Deploy to ECR and ECS
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
