@@ -1,0 +1,11 @@
+name: 'Action Monorepo Packages Changed'
+description: 'Get packages changes by folder'
+inputs:
+  token:
+    description: 'Github API token'
+  base_ref:
+    description: 'Optional branch for compare commits'
+
+runs:
+  using: node16
+  main: dist/index.js
