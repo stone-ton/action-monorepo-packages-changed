@@ -32,5 +32,10 @@
     "onStartup": [
       "not-test"
     ]
+  },
+  "[javascript][typescript]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
   }
 }
